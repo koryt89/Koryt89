@@ -1,0 +1,120 @@
+<div>
+<font id = "font"></font><br>
+<button id = "7">7</button><button id ="8">8</button><button id = "9">9</button><button id ="plus">+</button><br>
+<button id = "4">4</button><button id ="5">5</button><button id = "6">6</button><button id = "minus">-</button><br>
+<button id = "1">1</button><button id ="2">2</button><button id = "3">3</button><button id = "multiply">*</button><br>
+<button id = "0">0</button><button id = "enter">Enter</button><button id = "divide">/</button><br>
+
+<button id = "clear">Clear</button><button id = "Backspace">Backspace</button>
+</div>
+
+<script>
+document.getElementById("7").addEventListener("click",Numclick)
+document.getElementById("8").addEventListener("click",Numclick,)
+document.getElementById("9").addEventListener("click",Numclick)
+document.getElementById("plus").addEventListener("click",Numclick)
+document.getElementById("4").addEventListener("click",Numclick)
+document.getElementById("5").addEventListener("click",Numclick)
+document.getElementById("6").addEventListener("click",Numclick)
+document.getElementById("minus").addEventListener("click",Numclick)
+document.getElementById("1").addEventListener("click",Numclick)
+document.getElementById("2").addEventListener("click",Numclick)
+document.getElementById("3").addEventListener("click",Numclick)
+document.getElementById("0").addEventListener("click",Numclick)
+document.getElementById("multiply").addEventListener("click",Numclick)
+document.getElementById("divide").addEventListener("click",Numclick)
+document.getElementById("enter").addEventListener("click",equalFunction)
+
+
+
+
+
+function Numclick(e){
+
+    document.getElementById("font").innerText+=e.srcElement.textContent;
+}
+
+
+document.getElementById("enter").addEventListener("click",equalFunction)
+
+
+
+function equalFunction(){
+
+    
+let font = document.getElementById("font").innerText
+
+let result
+
+if(font.includes("+")){
+
+let var2 = font.substring(0,font.indexOf("+"))
+
+console.log(var2)
+
+let var3 = font.substring(font.indexOf("+")+1,font.length)
+result = parseFloat(var2)+parseFloat(var3)
+console.log(var3)
+
+}else if(font.includes("-")){
+let var2 = font.substring(0,font.indexOf("-"))
+
+console.log(var2)
+
+
+let var3 = font.substring(font.indexOf("-")+1,font.length)
+result = parseFloat(var2)-parseFloat(var3)
+console.log(var3)
+}
+
+
+else if(font.includes("*")){
+let var2 = font.substring(0,font.indexOf("*"))
+
+console.log(var2)
+
+
+let var3 = font.substring(font.indexOf("*")+1,font.length)
+result = parseFloat(var2)*parseFloat(var3)
+console.log(var3)
+
+
+}
+
+else if(font.includes("/")){
+let var2 = font.substring(0,font.indexOf("/"))
+
+console.log(var2)
+
+
+let var3 = font.substring(font.indexOf("/")+1,font.length)
+result = parseFloat(var2)/parseFloat(var3)
+console.log(var3)
+
+}
+ document.getElementById("font").innerText=result
+
+}
+
+
+document.getElementById("clear").addEventListener("click",clearFunction)
+
+
+function clearFunction(){
+
+document.getElementById("font").innerText=""
+
+
+}
+
+document.getElementById("Backspace").addEventListener("click",backFunction)
+
+
+function backFunction(){
+
+let font = document.getElementById("font").innerText
+let result = font.substring(0,font.length-1)
+document.getElementById("font").innerText = result
+
+}
+</script>
